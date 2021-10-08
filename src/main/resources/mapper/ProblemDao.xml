@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.custom.dao.ProblemDao">
+
+    <resultMap id="BaseResultMap" type="com.custom.entity.Problem">
+        <!--@Table problem-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="categoryCode" column="category_code" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="principalId" column="principal_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, category_code, description, principal_id
+        from one.problem
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, category_code, description, principal_id
+        from one.problem
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, category_code, description, principal_id
+        from one.problem
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="categoryCode != null and categoryCode != ''">
+                and category_code = #{categoryCode}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="principalId != null">
+                and principal_id = #{principalId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into one.problem(category_code, description, principal_id)
+        values (#{categoryCode}, #{description}, #{principalId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update one.problem
+        <set>
+            <if test="categoryCode != null and categoryCode != ''">
+                category_code = #{categoryCode},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="principalId != null">
+                principal_id = #{principalId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from one.problem where id = #{id}
+    </delete>
+
+</mapper>

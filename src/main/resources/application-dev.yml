@@ -1,0 +1,23 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.43.224:3306/one?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.43.224
+    port: 6379
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+myurls:
+  url: http://192.168.43.224:8081
+  methods:
+    getTitles: /secondCategory/secondCode/
+    postTest: /secondCategory/post
+    tt: /secondCategory/tt

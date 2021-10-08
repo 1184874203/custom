@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <title>${title}</title>
+</head>
+<body>
+<!--容器-->
+<div class="information_container">
+    <!--内容部分-->
+    <div class="information_content">
+        <!--标题-->
+        <div class="content_title">${title}</div>
+        <!--时间及来源-->
+        <div class="content_time_source">
+            <span>${time}&nbsp;&nbsp;${source}</span>
+        </div>
+        <!--摘要-->
+        <% if(isNotEmpty(summary)) { %>
+        <div class="content_abstract">
+            <span>【摘要】</span> ${summary}
+        </div>
+        <% } %>
+        <!--文章-->
+        <div class="content_detail">${content}</div>
+        <!--分类标签-->
+        <div class="content_label">
+            <% if(tagMap!=null){ %>
+            <!-- FIXME: may change to ajax in the future -->
+            <% for(tag in tagMap) { %> <a href="${schema}://${tag.key}"><span>${tag.value}</span></a> <% } %>
+            <% } %>
+        </div>
+        <!--点赞-->
+        <div class="content_thumbsup">
+            <div></div>
+            <p>+1!</p>
+            <!-- FIXME: may change to real ajax request or fake local script -->
+        </div>
+        <div class="content_line"></div>
+        <!--免责声明-->
+        <div class="content_disclaimer">
+            <span>免责声明：</span> <span>本页面资讯内容，来源于第三方，并不代表本证券公司观点。 仅供投资者参考，不构成投资建议。市场有风险，投资需谨慎。 </span>
+        </div>
+    </div>
+    <!--分割条-->
+    <div class="information_line"></div>
+    <!--新闻列表部分-->
+    <div class="information_newslist">
+        <!--新闻推荐-->
+        <div class="newslist_header">
+            <div class="newslist_header_redline"></div>
+            <span>新闻推荐</span>
+            <div class="newslist_content">
+                <% if(isNotEmpty(newsList)) { %>
+                <ul>
+                    <!-- FIXME: may change to ajax in the future -->
+                    <% for(news in newsList) { %>
+                    <li>
+                        <div class="news_title">${news.title}</div> <!--时间-->
+                        <div class="news_time">${news.time}</div>
+                        <div class="news_line"></div>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } else { %>
+                <p></p>
+                <p style="width: 100%; margin: 0 auto; text-align: center">暂无数据</p>
+                <p></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

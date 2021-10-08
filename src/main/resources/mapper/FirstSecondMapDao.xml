@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.custom.dao.FirstSecondMapDao">
+
+    <resultMap id="BaseResultMap" type="com.custom.entity.FirstSecondMap">
+        <!--@Table first_second_map-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="firstId" column="first_id" jdbcType="INTEGER"/>
+        <result property="secondId" column="second_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, first_id, second_id, create_time, update_time
+        from one.first_second_map
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, first_id, second_id, create_time, update_time
+        from one.first_second_map
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, first_id, second_id, create_time, update_time
+        from one.first_second_map
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="firstId != null">
+                and first_id = #{firstId}
+            </if>
+            <if test="secondId != null">
+                and second_id = #{secondId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into one.first_second_map(first_id, second_id, create_time, update_time)
+        values (#{firstId}, #{secondId}, #{createTime}, #{updateTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update one.first_second_map
+        <set>
+            <if test="firstId != null">
+                first_id = #{firstId},
+            </if>
+            <if test="secondId != null">
+                second_id = #{secondId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from one.first_second_map where id = #{id}
+    </delete>
+
+</mapper>
