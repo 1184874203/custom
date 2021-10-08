@@ -10,10 +10,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Configuration
 public class MyWebMvcConfigurer extends WebMvcConfigurationSupport {
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/news/**").addResourceLocations("file:D:/news-test/static/");
-		super.addResourceHandlers(registry);
-	}
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/news/**").addResourceLocations("file:D:/news-test/static/");
+        super.addResourceHandlers(registry);
+    }
 
 }

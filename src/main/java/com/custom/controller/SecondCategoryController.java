@@ -3,7 +3,6 @@ package com.custom.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.custom.constants.MyException;
-import com.custom.constants.Result;
 import com.custom.dto.NLP.NlpReq;
 import com.custom.entity.SecondCategory;
 import com.custom.entity.User;
@@ -30,7 +29,9 @@ import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 import static com.custom.constants.ExceptionEnum.AGE_EXCEPTION;
 
@@ -85,7 +86,7 @@ public class SecondCategoryController {
 
     @GetMapping("tt/{id}/{name}")
     public List<User> tt(@PathVariable String name, @PathVariable int id) {
-        List<User> list = Arrays.asList(new User(1, "a",""), new User(2, "b",""));
+        List<User> list = Arrays.asList(new User(1, "a", ""), new User(2, "b", ""));
         return list;
     }
 
@@ -128,7 +129,7 @@ public class SecondCategoryController {
 
     @GetMapping("haha")
     public List<User> haha(@RequestParam String name, @RequestParam int id) {
-        User user = new User(id, name,"");
+        User user = new User(id, name, "");
         try {
             ResponseEntity<List<User>> tt = (ResponseEntity<List<User>>) restUtils.getWithParams("", "tt", user, List.class);
             log.info("users: {}", tt.getBody());
@@ -192,8 +193,8 @@ public class SecondCategoryController {
     }
 
     @GetMapping("redis/{id}/{name}")
-    public String redis(@PathVariable Integer id,@PathVariable String name){
-        redisTemplate.opsForValue().set(id,name);
+    public String redis(@PathVariable Integer id, @PathVariable String name) {
+        redisTemplate.opsForValue().set(id, name);
         return "hello";
     }
 

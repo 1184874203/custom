@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 /**
  * 源数据的最基本返回体
  * {
- *     code:200,
- *     msg:"",
- *     data{}
+ * code:200,
+ * msg:"",
+ * data{}
  * }
  *
  * @author: 邵禹寒

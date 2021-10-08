@@ -3,14 +3,10 @@ package com.custom.utils;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.beetl.core.GroupTemplate;
-import org.beetl.core.resource.ClasspathResourceLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.io.IOException;
 
 /**
  * @author: 邵禹寒
@@ -38,7 +34,6 @@ public class MyConfig {
     public Logger log() {
         return LoggerFactory.getLogger(Logger.class);
     }
-
 
 
 }

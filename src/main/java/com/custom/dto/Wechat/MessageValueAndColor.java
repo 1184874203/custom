@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * message信息 value color
+ *
  * @author: 邵禹寒
  * @date: 2021-09-30 17:32
  */

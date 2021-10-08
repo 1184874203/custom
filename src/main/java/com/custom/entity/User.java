@@ -16,11 +16,11 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-30 10:03:32
  */
 public class User {
-    
+
     private Integer id;
-    
+
     private String name;
-    
+
     private String pushTime;
 
 

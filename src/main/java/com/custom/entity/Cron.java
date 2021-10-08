@@ -16,9 +16,9 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-29 17:15:08
  */
 public class Cron {
-    
+
     private Integer id;
-    
+
     private String cron;
 
 

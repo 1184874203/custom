@@ -1,6 +1,5 @@
 package com.custom.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.custom.annotation.CheckToken;
 import com.custom.annotation.SetRedis;
 import com.custom.constants.ExceptionEnum;
@@ -14,7 +13,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.time.Duration;
 import java.util.UUID;
 

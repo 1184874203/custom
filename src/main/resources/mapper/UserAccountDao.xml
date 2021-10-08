@@ -11,24 +11,25 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
-        select
-          id, account, password
+        select id,
+               account,
+               password
         from one.user_account
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          id, account, password
-        from one.user_account
-        limit #{offset}, #{limit}
+        select id,
+               account,
+               password
+        from one.user_account limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          id, account, password
+        id, account, password
         from one.user_account
         <where>
             <if test="id != null">
@@ -65,10 +66,15 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from one.user_account where id = #{id}
+        delete
+        from one.user_account
+        where id = #{id}
     </delete>
 
     <select id="queryByAccountAndPassword" resultMap="BaseResultMap">
-        select * from one.user_account where account = #{account} and password = #{password}
+        select *
+        from one.user_account
+        where account = #{account}
+          and password = #{password}
     </select>
 </mapper>

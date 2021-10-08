@@ -11,24 +11,25 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
-        select
-          id, name, push_time
+        select id,
+               name,
+               push_time
         from one.user
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          id, name, push_time
-        from one.user
-        limit #{offset}, #{limit}
+        select id,
+               name,
+               push_time
+        from one.user limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          id, name, push_time
+        id, name, push_time
         from one.user
         <where>
             <if test="id != null">
@@ -65,15 +66,21 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from one.user where id = #{id}
+        delete
+        from one.user
+        where id = #{id}
     </delete>
 
     <select id="queryPushTimes" resultType="String">
-        select push_time from user group by push_time
+        select push_time
+        from user
+        group by push_time
     </select>
 
     <select id="queryByPushTime" resultMap="BaseResultMap">
-        select * from user where push_time = #{pushTime}
+        select *
+        from user
+        where push_time = #{pushTime}
     </select>
 
 </mapper>

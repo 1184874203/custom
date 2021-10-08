@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-16 15:20:35
  */
 public class News {
-    
+
     public Integer id;
 
     public String title;

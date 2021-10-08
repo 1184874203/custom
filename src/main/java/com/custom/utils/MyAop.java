@@ -1,18 +1,13 @@
 package com.custom.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.custom.annotation.SetRedis;
 import com.custom.constants.ExceptionEnum;
 import com.custom.constants.MyException;
-import com.custom.constants.Result;
 import com.custom.entity.UserAccount;
-import com.custom.factory.ExpireFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.assertj.core.util.Arrays;
 import org.slf4j.Logger;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -22,12 +17,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Method;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * @author: 邵禹寒

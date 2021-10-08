@@ -25,7 +25,7 @@ public class SendMessage {
     /**
      * 推送消息的工具类
      */
-    public void sendMsg(){
+    public void sendMsg() {
         MessageReq build = MessageReq.builder()
                 .touser("OPENID")
                 .template_id("template_id")
@@ -49,8 +49,8 @@ public class SendMessage {
                 .build();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<MessageReq> httpEntity = new HttpEntity<>(build,headers);
-        String url="";
+        HttpEntity<MessageReq> httpEntity = new HttpEntity<>(build, headers);
+        String url = "";
         MessageResp messageResp = restTemplate.postForObject(url, httpEntity, MessageResp.class);
     }
 
@@ -102,8 +102,8 @@ public class SendMessage {
     }
 
     public static void main(String[] args) {
-        String name="syh";
-        String url="https://www.baidu.com?name={name}";
+        String name = "syh";
+        String url = "https://www.baidu.com?name={name}";
         System.out.println(url);
     }
 }

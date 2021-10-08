@@ -12,24 +12,27 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
-        select
-          id, category_code, description, principal_id
+        select id,
+               category_code,
+               description,
+               principal_id
         from one.problem
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          id, category_code, description, principal_id
-        from one.problem
-        limit #{offset}, #{limit}
+        select id,
+               category_code,
+               description,
+               principal_id
+        from one.problem limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          id, category_code, description, principal_id
+        id, category_code, description, principal_id
         from one.problem
         <where>
             <if test="id != null">
@@ -72,7 +75,9 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from one.problem where id = #{id}
+        delete
+        from one.problem
+        where id = #{id}
     </delete>
 
 </mapper>

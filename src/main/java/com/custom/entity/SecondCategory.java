@@ -17,24 +17,24 @@ import lombok.experimental.SuperBuilder;
  */
 public class SecondCategory {
     /**
-    * 自增主键
-    */
+     * 自增主键
+     */
     private Integer id;
     /**
-    * 类目编码
-    */
+     * 类目编码
+     */
     private String categoryCode;
     /**
-    * 中文描述
-    */
+     * 中文描述
+     */
     private String description;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private String createTime;
     /**
-    * 更新时间
-    */
+     * 更新时间
+     */
     private String updateTime;
 
 

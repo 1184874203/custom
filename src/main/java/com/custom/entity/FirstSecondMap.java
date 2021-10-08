@@ -16,15 +16,15 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-02 17:51:09
  */
 public class FirstSecondMap {
-    
+
     private Integer id;
-    
+
     private Integer firstId;
-    
+
     private Integer secondId;
-    
+
     private String createTime;
-    
+
     private String updateTime;
 
 

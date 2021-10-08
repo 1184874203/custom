@@ -13,24 +13,29 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
-        select
-          id, category_code, description, create_time, update_time
+        select id,
+               category_code,
+               description,
+               create_time,
+               update_time
         from one.first_category
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          id, category_code, description, create_time, update_time
-        from one.first_category
-        limit #{offset}, #{limit}
+        select id,
+               category_code,
+               description,
+               create_time,
+               update_time
+        from one.first_category limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          id, category_code, description, create_time, update_time
+        id, category_code, description, create_time, update_time
         from one.first_category
         <where>
             <if test="id != null">
@@ -79,7 +84,9 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from one.first_category where id = #{id}
+        delete
+        from one.first_category
+        where id = #{id}
     </delete>
 
 </mapper>

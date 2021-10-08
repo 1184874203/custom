@@ -16,6 +16,6 @@ public class ControllerExceptionHandler {
     @ResponseBody
     @ExceptionHandler(MyException.class)
     public Result ExceptionHandler(MyException e) {
-        return new Result(e.getCode(), e.getMsg(),null);
+        return new Result(e.getCode(), e.getMsg(), null);
     }
 }

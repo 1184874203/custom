@@ -16,11 +16,11 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-24 10:49:17
  */
 public class UserAccount {
-    
+
     private Integer id;
-    
+
     private String account;
-    
+
     private String password;
 
 

@@ -1,7 +1,7 @@
 package com.custom.service.impl;
 
-import com.custom.entity.UserAccount;
 import com.custom.dao.UserAccountDao;
+import com.custom.entity.UserAccount;
 import com.custom.service.UserAccountService;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +34,7 @@ public class UserAccountServiceImpl implements UserAccountService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override

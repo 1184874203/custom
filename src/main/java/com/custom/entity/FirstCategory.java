@@ -16,13 +16,13 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-02 17:51:05
  */
 public class FirstCategory {
-    
+
     private Integer id;
-    
+
     private String categoryCode;
-    
+
     private String description;
-    
+
     private String createTime;
 
     private String updateTime;

@@ -2,7 +2,9 @@ package com.custom.controller;
 
 import com.custom.entity.FirstCategory;
 import com.custom.service.FirstCategoryService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 

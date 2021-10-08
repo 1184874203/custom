@@ -3,15 +3,13 @@ package com.custom.controller;
 import com.custom.entity.News;
 import com.custom.service.NewsService;
 import com.custom.utils.TemplateUtils;
-import org.beetl.core.GroupTemplate;
-import org.beetl.core.Template;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.UUID;
 
 /**
  * (News)表控制层

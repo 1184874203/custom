@@ -16,13 +16,13 @@ import lombok.experimental.SuperBuilder;
  * @since 2021-09-02 17:51:09
  */
 public class Problem {
-    
+
     private Integer id;
-    
+
     private String categoryCode;
-    
+
     private String description;
-    
+
     private Integer principalId;
 
 

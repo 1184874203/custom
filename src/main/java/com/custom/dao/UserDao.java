@@ -1,8 +1,9 @@
 package com.custom.dao;
 
 import com.custom.entity.User;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * @author 邵禹寒
  * @since 2021-09-30 10:03:33
  */
- @Mapper
+@Mapper
 public interface UserDao {
 
     /**
@@ -26,7 +27,7 @@ public interface UserDao {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<User> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
