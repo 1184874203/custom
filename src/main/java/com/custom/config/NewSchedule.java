@@ -4,6 +4,7 @@ import com.custom.dao.CronDao;
 import com.custom.dao.UserDao;
 import com.custom.entity.User;
 import com.custom.utils.CronConstructor;
+import com.custom.utils.SendMessage;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -36,6 +37,8 @@ public class NewSchedule implements SchedulingConfigurer {
     @Resource
     private RedisTemplate redisTemplate;
 
+    @Resource
+    private SendMessage sendMessage;
 
     // private List<String> pushTimes;
 
@@ -51,7 +54,8 @@ public class NewSchedule implements SchedulingConfigurer {
             pushTimes
                     .forEach(e -> redisTemplate.opsForValue().set(e, userDao.queryByPushTime(e), Duration.ofHours(24L)));
             System.out.println(pushTimes);
-        }, trigger -> new CronTrigger("0 09 16 * * ?").nextExecutionTime(trigger));
+            sendMessage.sendMsg();
+        }, trigger -> new CronTrigger("0 30 16 * * ?").nextExecutionTime(trigger));
 
         /**
          * 每分钟 跑的定时任务，每次从当前时间作为key，从redis中取数据
@@ -62,8 +66,7 @@ public class NewSchedule implements SchedulingConfigurer {
             // LocalDateTime.now().getMinute()
             List<User> users = (List<User>) redisTemplate.opsForValue().get(LocalDateTime.now().format(dateTimeFormatter));
             if (users != null && !users.isEmpty()) {
-                users
-                        .forEach(System.out::println);
+                users.forEach(System.out::println);
             }
         }, t -> new CronTrigger("0 * * * * ?").nextExecutionTime(t));
         // taskRegistrar.addTriggerTask(
