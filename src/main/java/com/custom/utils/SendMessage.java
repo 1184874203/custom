@@ -82,10 +82,4 @@ public class SendMessage {
             restTemplate.postForObject(url, httpEntity, Object.class, accessToken);
         }
     }
-
-    public static void main(String[] args) {
-        String name = "syh";
-        String url = "https://www.baidu.com?name={name}";
-        System.out.println(url);
-    }
 }
