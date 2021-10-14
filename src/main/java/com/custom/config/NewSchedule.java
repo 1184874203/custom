@@ -54,7 +54,7 @@ public class NewSchedule implements SchedulingConfigurer {
             pushTimes
                     .forEach(e -> redisTemplate.opsForValue().set(e, userDao.queryByPushTime(e), Duration.ofHours(24L)));
             System.out.println(pushTimes);
-            sendMessage.sendMsg();
+            // sendMessage.sendMsg("oT9Cm5s0usBrsa_aTzBMnUX7YotM","sPA3cqqFxBnIo96n6j8iBTMtxCbpgthe2yXbFYYvndY","https://www.baidu.com");
         }, trigger -> new CronTrigger("0 30 16 * * ?").nextExecutionTime(trigger));
 
         /**

@@ -52,8 +52,8 @@ public class WechatController {
     }
 
     @GetMapping("sendMessage")
-    public void sendSms() {
+    public Object sendSms() {
         // FIXME: 可以捕获异常
-        sendMessage.sendMsg();
+        return sendMessage.sendMsg("oT9Cm5s0usBrsa_aTzBMnUX7YotM","vZVQ2kYXI0Ov8kvk3Ea2vpPcBBmfqhj0TtqmPepCWTU","https://www.baidu.com");
     }
 }

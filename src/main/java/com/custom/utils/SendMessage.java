@@ -55,31 +55,34 @@ public class SendMessage {
     /**
      * 推送消息的工具类
      */
-    public void sendMsg() {
+    public Object sendMsg(String openId,String templateId,String exUrl) {
         String url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={accessToken}";
         String accessToken = (String) redisTemplate.opsForValue().get("access_token");
         if (accessToken == null) {
             accessToken = getAccessToken();
         }
-        String openId = "oT9Cm5s0usBrsa_aTzBMnUX7YotM";
+        // String openId = "oT9Cm5s0usBrsa_aTzBMnUX7YotM";//syh
         // String openId = "oT9Cm5jzSkHErJHlK2a7L_jgWAUc";
-        for (int i = 0; i < 3; i++) {
-            MessageReq build = MessageReq.builder()
-                    .touser(openId)
-                    .template_id("vZVQ2kYXI0Ov8kvk3Ea2vpPcBBmfqhj0TtqmPepCWTU")
-                    .url("https://www.baidu.com")
-                    .data(MessageData.builder()
-                            .first(new MessageValueAndColor("标题", "#173177"))
-                            .keyword1(new MessageValueAndColor("第" + i + "条", "#000000"))
-                            .keyword2(new MessageValueAndColor("我们从不证实那个问题，那一些是非题，总让人伤透脑筋；在你眼里我是什么关系", "#000000"))
-                            .keyword3(new MessageValueAndColor("全创", "#000000"))
-                            .remark(new MessageValueAndColor("再次提醒！", "#173177"))
-                            .build())
-                    .build();
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<MessageReq> httpEntity = new HttpEntity<>(build, headers);
-            restTemplate.postForObject(url, httpEntity, Object.class, accessToken);
-        }
+        // String openId = "oT9Cm5icli__LZLy24tf9lJSY0hs";//xin
+        // for (int i = 0; i < 3; i++) {
+        //
+        // }
+        MessageReq build = MessageReq.builder()
+                .touser(openId)
+                // .template_id("vZVQ2kYXI0Ov8kvk3Ea2vpPcBBmfqhj0TtqmPepCWTU")
+                .template_id(templateId)
+                .url(exUrl)
+                .data(MessageData.builder()
+                        .first(new MessageValueAndColor("亲爱的Xin~!", "#FF0000"))
+                        .keyword1(new MessageValueAndColor("英短还是矮脚？", "#000000"))
+                        .keyword2(new MessageValueAndColor("弟弟还是妹妹？", "#000000"))
+                        .keyword3(new MessageValueAndColor("哈哈实在是没啥问的。。上面两个问题也问过你了。。", "#000000"))
+                        .remark(new MessageValueAndColor("谢谢参与！", "#173177"))
+                        .build())
+                .build();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<MessageReq> httpEntity = new HttpEntity<>(build, headers);
+        return restTemplate.postForObject(url, httpEntity, Object.class, accessToken);
     }
 }
